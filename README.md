@@ -79,3 +79,12 @@
 > Swagger: 
 
 #### Задание
+
+---
+
+# Файлы с заданиями
+
+- [system_design_task_01.pdf](./materials/tasks/system_design_task_01.pdf)
+- [system_design_task_02.pdf](./materials/tasks/system_design_task_02.pdf)
+- [system_design_task_03.pdf](./materials/tasks/system_design_task_03.pdf)
+- [system_design_task_04.pdf](./materials/tasks/system_design_task_04.pdf)
