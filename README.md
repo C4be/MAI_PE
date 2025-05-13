@@ -56,7 +56,7 @@
 
 > Директория: [/Lab4_REST_postgresql_mongo](./Lab4_REST_postgresql_mongo/)
 
-> Отчет: [/Lab4_REST_postgresql_mongo/src/README.md](./Lab4_REST_postgresql_mongo/src/README.md)
+> Отчет: [/Lab4_REST_postgresql_mongo/README.md](./Lab4_REST_postgresql_mongo/README.md)
 
 > Swagger: [/Lab4_REST_postgresql_mongo/doc](./Lab4_REST_postgresql_mongo/doc/)
 
