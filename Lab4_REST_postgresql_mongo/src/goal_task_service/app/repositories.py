@@ -1,7 +1,9 @@
 from sqlalchemy.orm import Session
-from typing import Optional, List
+from typing import Optional, List, Dict
+from bson import ObjectId
 
 from app.models import Goal, Task
+from app.database_mongo import image_collection, text_collection, office_collection
 
 
 class GoalRepository:
@@ -79,3 +81,61 @@ class TaskRepository:
         db.commit()
         return True
     
+    def save_file_info(self, db: Session, task_id: int, filename: str, mongo_id: str) -> Optional[Task]:
+        task = db.query(Task).filter(Task.id == task_id).first()
+        if not task:
+            return None
+        files = task.files or {}
+        files[filename] = mongo_id
+        task.files = files
+        db.commit()
+        db.refresh(task)
+        return task
+
+    def delete_file_info(self, db: Session, task_id: int, filename: str) -> Optional[Task]:
+        task = db.query(Task).filter(Task.id == task_id).first()
+        if not task or not task.files or filename not in task.files:
+            return None
+        del task.files[filename]
+        db.commit()
+        db.refresh(task)
+        return task
+
+    def get_all_files(self, db: Session, task_id: int) -> Optional[Dict[str, str]]:
+        task = db.query(Task).filter(Task.id == task_id).first()
+        return task.files if task else None
+
+    def get_mongo_id(self, db: Session, task_id: int, filename: str) -> Optional[str]:
+        task = db.query(Task).filter(Task.id == task_id).first()
+        if not task or not task.files:
+            return None
+        return task.files.get(filename)
+
+
+class FileRepository:
+    def save_image(self, image_data: bytes) -> str:
+        document = {"data": image_data}
+        result = image_collection.insert_one(document)
+        return str(result.inserted_id)
+
+    def save_text(self, text_data: str, filename: str = None) -> str:
+        document = {"text": text_data}
+        if filename:
+            document["filename"] = filename
+        result = text_collection.insert_one(document)
+        return str(result.inserted_id)
+
+    def save_office_file(self, file_data: bytes, filename: str) -> str:
+        document = {
+            "filename": filename,
+            "data": file_data
+        }
+        result = office_collection.insert_one(document)
+        return str(result.inserted_id)
+
+    def get_file_by_id(self, collection, file_id: str):
+        return collection.find_one({"_id": ObjectId(file_id)})
+    
+    def delete_file_by_id(self, collection, file_id: str) -> bool:
+        result = collection.delete_one({"_id": ObjectId(file_id)})
+        return result.deleted_count > 0
