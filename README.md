@@ -14,11 +14,9 @@
 
 # Лабораторная работа №1
 
-> Директория:
+> Директория: [/Lab1_system_design](./Lab1_system_design/)
 
-> Отчет: 
-
-> Swagger: 
+> Отчет: [/Lab1_system_design/src/README.md](./Lab1_system_design/src/README.md)
 
 #### Задание
 
@@ -28,13 +26,11 @@
 
 # Лабораторная работа №2
 
-
-
 > Директория: [/Lab2_REST_with_in_memory](./Lab2_REST_with_in_memory/)
 
 > Отчет: [/Lab2_REST_with_in_memory/README.MD](./Lab2_REST_with_in_memory/README.MD)
 
-> Swagger: 
+> Swagger: [/Lab2_REST_with_in_memory/doc](./Lab2_REST_with_in_memory/doc/)
 
 #### Задание
 
@@ -48,7 +44,7 @@
 
 > Отчет: [/Lab3_REST_with_postgresql/README.md](./Lab3_REST_with_postgresql/README.md)
 
-> Swagger: 
+> Swagger: [/Lab3_REST_with_postgresql/doc](./Lab3_REST_with_postgresql/doc/)
 
 #### Задание
 
@@ -58,11 +54,11 @@
 
 # Лабораторная работа №4
 
-> Директория:
+> Директория: [/Lab4_REST_postgresql_mongo](./Lab4_REST_postgresql_mongo/)
 
-> Отчет: 
+> Отчет: [/Lab4_REST_postgresql_mongo/src/README.md](./Lab4_REST_postgresql_mongo/src/README.md)
 
-> Swagger: 
+> Swagger: [/Lab4_REST_postgresql_mongo/doc](./Lab4_REST_postgresql_mongo/doc/)
 
 #### Задание
 
