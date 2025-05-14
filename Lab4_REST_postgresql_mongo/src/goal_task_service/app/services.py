@@ -95,6 +95,7 @@ class TaskService:
         else:
             mongo_id = self.file_repository.save_office_file(file_data, filename)
 
+        print(task_id, filename, mongo_id)
         return self.repository.save_file_info(db, task_id, filename, mongo_id)
 
     def del_file_by_name(self, db: Session, task_id: int, file_name: str) -> Optional[Task]:

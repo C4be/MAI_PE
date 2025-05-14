@@ -1,4 +1,5 @@
 from sqlalchemy import Column, Integer, String, DateTime, JSON, ForeignKey
+from sqlalchemy.ext.mutable import MutableDict
 from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 
@@ -26,7 +27,7 @@ class Task(Base):
     text = Column(String, nullable=False)
     owner_nick = Column(String, nullable=False)
     created_at = Column(DateTime, default=datetime.now(timezone.utc))
-    files = Column(JSON)
+    files = Column(MutableDict.as_mutable(JSON), nullable=True)
 
     goal_id = Column(Integer, ForeignKey('goals.id'))
     

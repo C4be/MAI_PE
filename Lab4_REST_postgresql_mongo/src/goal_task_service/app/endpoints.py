@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from typing import List
 
@@ -52,6 +52,51 @@ def delete_task(task_id: int, db: Session = Depends(get_db), nick: str = Depends
     if not is_deleted:
         raise HTTPException(status_code=404, detail="Task not found")
     return is_deleted
+
+@task_router.post("/tasks/{task_id}/upload", response_model=TaskRead)
+def upload_file_to_task(
+    task_id: int,
+    file: UploadFile = File(...),
+    file_type: str = Form(...),  # 'image', 'text', 'office'
+    db: Session = Depends(get_db)
+):
+    contents = file.file.read()
+    updated_task = task_service.add_file(
+        db=db,
+        task_id=task_id,
+        file_data=contents,
+        filename=file.filename,
+        file_type=file_type
+    )
+    if not updated_task:
+        raise HTTPException(status_code=404, detail="Failed to upload file")
+    return TaskRead.model_validate(updated_task)
+
+
+@task_router.delete("/tasks/{task_id}/file-by-name", response_model=TaskRead)
+def delete_file_by_name(
+    task_id: int,
+    file_name: str,
+    db: Session = Depends(get_db)
+):
+    updated_task = task_service.del_file_by_name(db, task_id, file_name)
+    if not updated_task:
+        raise HTTPException(status_code=404, detail="File not found in task")
+    return TaskRead.model_validate(updated_task)
+
+
+@task_router.delete("/tasks/{task_id}/file-by-id", response_model=TaskRead)
+def delete_file_by_id(
+    task_id: int,
+    file_id: str,
+    db: Session = Depends(get_db)
+):
+    updated_task = task_service.del_file_by_id(db, task_id, file_id)
+    if not updated_task:
+        raise HTTPException(status_code=404, detail="File not found in task")
+    return TaskRead.model_validate(updated_task)
+
+
 
 
 

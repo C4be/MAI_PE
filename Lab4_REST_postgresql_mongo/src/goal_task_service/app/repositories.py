@@ -86,10 +86,17 @@ class TaskRepository:
         if not task:
             return None
         files = task.files or {}
+        print(files)
         files[filename] = mongo_id
-        task.files = files
+        print(files)
+        task.files = dict(files)
+        print(task.files)
         db.commit()
         db.refresh(task)
+        
+        fresh_task = db.query(Task).filter(Task.id == task_id).first()
+        print("ACTUAL FROM DB:", fresh_task.files)
+        
         return task
 
     def delete_file_info(self, db: Session, task_id: int, filename: str) -> Optional[Task]:

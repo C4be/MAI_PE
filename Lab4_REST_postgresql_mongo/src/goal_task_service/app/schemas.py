@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Optional, Dict
 from datetime import datetime
 
 class GoalCreate(BaseModel):
@@ -25,7 +25,7 @@ class TaskCreate(BaseModel):
     title: str
     text: str
     owner_nick: str
-    files: Optional[dict] = None
+    files: Optional[Dict[str, str]] = None
     goal_id: Optional[int] = None
 
 
@@ -34,7 +34,7 @@ class TaskRead(BaseModel):
     title: str
     text: str
     owner_nick: str
-    files: Optional[dict]
+    files: Optional[Dict[str, str]] = None
     created_at: datetime
     goal_id: Optional[int]
 
