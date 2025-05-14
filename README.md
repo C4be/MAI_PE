@@ -78,13 +78,15 @@
 
 > Status: Process
 
-> Директория:
+> Директория: [./Lab5_REST_postgresql_mongo_redis/](./Lab5_REST_postgresql_mongo_redis/)
 
-> Отчет: 
+> Отчет: [/Lab5_REST_postgresql_mongo_redis/README.md](./Lab5_REST_postgresql_mongo_redis/README.md)
 
 > Swagger: 
 
 #### Задание
+
+![task](./materials/img/lab5/task.png)
 
 ---
 
@@ -94,3 +96,4 @@
 - [system_design_task_02.pdf](./materials/tasks/system_design_task_02.pdf)
 - [system_design_task_03.pdf](./materials/tasks/system_design_task_03.pdf)
 - [system_design_task_04.pdf](./materials/tasks/system_design_task_04.pdf)
+- [5 задание в конце презентации](./materials/tasks/arch_lection_11_cache.pdf)
