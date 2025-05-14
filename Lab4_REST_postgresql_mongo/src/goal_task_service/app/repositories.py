@@ -139,3 +139,7 @@ class FileRepository:
     def delete_file_by_id(self, collection, file_id: str) -> bool:
         result = collection.delete_one({"_id": ObjectId(file_id)})
         return result.deleted_count > 0
+    
+    def delete_file_by_filename(self, collection, filename: str) -> bool:
+        result = collection.delete_one({"filename": filename})
+        return result.deleted_count > 0
