@@ -14,6 +14,8 @@
 
 # Лабораторная работа №1
 
+> Status: Process
+
 > Директория: [/Lab1_system_design](./Lab1_system_design/)
 
 > Отчет: [/Lab1_system_design/src/README.md](./Lab1_system_design/src/README.md)
@@ -25,6 +27,8 @@
 ---
 
 # Лабораторная работа №2
+
+> Status: Process
 
 > Директория: [/Lab2_REST_with_in_memory](./Lab2_REST_with_in_memory/)
 
@@ -40,6 +44,8 @@
 
 # Лабораторная работа №3
 
+> Status: Process
+
 > Директория: [/Lab3_REST_with_postgresql](./Lab3_REST_with_postgresql/)
 
 > Отчет: [/Lab3_REST_with_postgresql/README.md](./Lab3_REST_with_postgresql/README.md)
@@ -54,6 +60,8 @@
 
 # Лабораторная работа №4
 
+> Status: Process
+
 > Директория: [/Lab4_REST_postgresql_mongo](./Lab4_REST_postgresql_mongo/)
 
 > Отчет: [/Lab4_REST_postgresql_mongo/README.md](./Lab4_REST_postgresql_mongo/README.md)
@@ -67,6 +75,8 @@
 ---
 
 # Лабораторная работа №5
+
+> Status: Process
 
 > Директория:
 
