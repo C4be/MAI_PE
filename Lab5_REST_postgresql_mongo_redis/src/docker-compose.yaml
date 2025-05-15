@@ -32,6 +32,7 @@ services:
             - '8000:8000'
         depends_on:
             - user_db
+            - cash_db
         environment:
             - DATABASE_NAME=user_service_db
             - DB_USER=root
@@ -73,6 +74,7 @@ services:
             - our_network
         restart: unless-stopped
 
+    # Mongo db
     task_files_db:
         image: mongo:latest
         ports:
@@ -86,6 +88,17 @@ services:
         networks:
             - our_network
 
+    # Redis
+    cash_db:
+        image: redis:latest
+        ports:
+            - "6379:6379"
+        volumes:
+            - ./redis_data:/data
+        restart: unless-stopped
+        networks:
+            - our_network
+
 networks:
     our_network:
         driver: bridge
@@ -94,5 +107,5 @@ volumes:
     user_db_data:
     goal_task_db_data:
     mongodb_data:
-        
+    redis_data:
         
