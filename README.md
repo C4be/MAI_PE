@@ -10,7 +10,7 @@
 
 ---
 
-Лабораторные работы по системному дизайну направлены на то, чтобы реализовать поэтапно микросервисы, с использованием современных технологий: REST, PostgreSQL, Mongo, Redis.
+Лабораторные работы по системному дизайну направлены на то, чтобы реализовать поэтапно микросервисы, с использованием современных технологий: REST, PostgreSQL, Mongo, Redis, Kafka.
 
 ![variant](./materials/img/variant.png)
 
@@ -18,7 +18,7 @@
 
 # Лабораторная работа №1
 
-> Status: Process
+> Status: DONE
 
 > Директория: [/Lab1_system_design](./Lab1_system_design/)
 
@@ -34,7 +34,7 @@
 
 # Лабораторная работа №2
 
-> Status: Process
+> Status: DONE
 
 > Директория: [/Lab2_REST_with_in_memory](./Lab2_REST_with_in_memory/)
 
@@ -52,7 +52,7 @@
 
 # Лабораторная работа №3
 
-> Status: Process
+> Status: DONE
 
 > Директория: [/Lab3_REST_with_postgresql](./Lab3_REST_with_postgresql/)
 
@@ -70,7 +70,7 @@
 
 # Лабораторная работа №4
 
-> Status: Process
+> Status: DONE
 
 > Директория: [/Lab4_REST_postgresql_mongo](./Lab4_REST_postgresql_mongo/)
 
@@ -88,7 +88,7 @@
 
 # Лабораторная работа №5
 
-> Status: Process
+> Status: DONE
 
 > Директория: [./Lab5_REST_postgresql_mongo_redis/](./Lab5_REST_postgresql_mongo_redis/)
 
@@ -104,6 +104,24 @@
 
 ---
 
+# Лабораторная работа №6
+
+> Status: Process
+
+> Директория: 
+
+> Отчет: 
+
+> OpenAPI: 
+
+> DSL: 
+
+#### Задание
+
+![task](./materials/img/lab5/task.png)
+
+---
+
 # Файлы с заданиями
 
 - [system_design_task_01.pdf](./materials/tasks/system_design_task_01.pdf)
@@ -111,3 +129,4 @@
 - [system_design_task_03.pdf](./materials/tasks/system_design_task_03.pdf)
 - [system_design_task_04.pdf](./materials/tasks/system_design_task_04.pdf)
 - [5 задание в конце презентации](./materials/tasks/arch_lection_11_cache.pdf)
+- [system_design_task_06.pdf](./materials/tasks/system_design_task_06.pdf)
