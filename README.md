@@ -1,10 +1,14 @@
 # Лабораторные работы по предмету Программная Инженерия (Системный Дизайн)
 
+---
+
 ## Описание
 
 ###### Группа: М80-109-СВ
 ###### Исполнитель: Гимазетдинов Дмитрий
 ###### Варинат: 10
+
+---
 
 Лабораторные работы по системному дизайну направлены на то, чтобы реализовать поэтапно микросервисы, с использованием современных технологий: REST, PostgreSQL, Mongo, Redis.
 
@@ -20,6 +24,8 @@
 
 > Отчет: [/Lab1_system_design/src/README.md](./Lab1_system_design/src/README.md)
 
+> DSL: [/Lab1_system_design/src/Worlspace.dsl](./Lab1_system_design/src/Worlspace.dsl) 
+
 #### Задание
 
 ![lab1](./materials/img/lab1/task.png)
@@ -34,7 +40,9 @@
 
 > Отчет: [/Lab2_REST_with_in_memory/README.MD](./Lab2_REST_with_in_memory/README.MD)
 
-> Swagger: [/Lab2_REST_with_in_memory/doc](./Lab2_REST_with_in_memory/doc/)
+> OpenAPI: [/Lab2_REST_with_in_memory/doc/OpenAPI/](./Lab2_REST_with_in_memory/doc/OpenAPI/)
+
+> DSL: [/Lab2_REST_with_in_memory/doc/Worlspace.dsl](./Lab2_REST_with_in_memory/doc/Worlspace.dsl) 
 
 #### Задание
 
@@ -50,7 +58,9 @@
 
 > Отчет: [/Lab3_REST_with_postgresql/README.md](./Lab3_REST_with_postgresql/README.md)
 
-> Swagger: [/Lab3_REST_with_postgresql/doc](./Lab3_REST_with_postgresql/doc/)
+> OpenAPI: [/Lab3_REST_with_postgresql/doc/OpenAPI/](./Lab3_REST_with_postgresql/doc/OpenAPI/)
+
+> DSL: [/Lab3_REST_with_postgresql/doc/Worlspace.dsl](./Lab3_REST_with_postgresql/doc/Worlspace.dsl) 
 
 #### Задание
 
@@ -66,7 +76,9 @@
 
 > Отчет: [/Lab4_REST_postgresql_mongo/README.md](./Lab4_REST_postgresql_mongo/README.md)
 
-> Swagger: [/Lab4_REST_postgresql_mongo/doc](./Lab4_REST_postgresql_mongo/doc/)
+> OpenAPI: [/Lab4_REST_postgresql_mongo/doc/OpenAPI/](./Lab4_REST_postgresql_mongo/doc/OpenAPI/)
+
+> DSL: [/Lab4_REST_postgresql_mongo/doc/Worlspace.dsl](./Lab4_REST_postgresql_mongo/doc/Worlspace.dsl) 
 
 #### Задание
 
@@ -82,7 +94,9 @@
 
 > Отчет: [/Lab5_REST_postgresql_mongo_redis/README.md](./Lab5_REST_postgresql_mongo_redis/README.md)
 
-> Swagger: 
+> OpenAPI: [/Lab5_REST_postgresql_mongo_redis/doc/OpenAPI/](./Lab5_REST_postgresql_mongo_redis/doc/OpenAPI/)
+
+> DSL: [/Lab5_REST_postgresql_mongo_redis/doc/Worlspace.dsl](./Lab5_REST_postgresql_mongo_redis/doc/Worlspace.dsl) 
 
 #### Задание
 

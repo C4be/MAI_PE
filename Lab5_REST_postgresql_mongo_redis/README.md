@@ -40,7 +40,7 @@
 - [X] При старте должен автоматически создаваться мастер-пользователь: `login: admin` `password: secret`
 
 Документация:
-- [ ] OpenAPI спецификация должна быть сохранена в корне проекта
+- [X] OpenAPI спецификация должна быть сохранена в корне проекта
 
 Архитектура:
 - [X] Обновлённая модель архитектуры в Structurizr DSL
@@ -90,4 +90,68 @@
 - http://localhost:8000/docs (сервис пользователей)
 - http://localhost:8001/docs (сервис целей и задач)
 
-        
+
+## Что необходимо добавить:
+
+- [X] Сквозное чтение и сквозную запись
+- [X] Тесты производительности
+
+## Тесты Redis с помошью команды 
+
+##### Тест 1 (10 потоков, 100 соединений, 30 секунд)
+
+Команда:
+
+```bash
+wrk -t10 -c100 -d30s http://localhost:8000/user/id-1
+```
+
+Redis `ON`:
+
+```bash
+➜  ~ wrk -t10 -c100 -d30s http://localhost:8000/user/id-1
+Running 30s test @ http://localhost:8000/user/id-1
+  10 threads and 100 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    75.01ms   15.22ms 264.69ms   88.72%
+    Req/Sec   134.61     23.14   200.00     65.47%
+  40120 requests in 30.06s, 7.42MB read
+Requests/sec:   1334.75
+Transfer/sec:    252.87KB
+```
+
+Redis `OFF`:
+
+```bash
+sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 
+```
+
+##### Тест 1 (5 потоков, 200 соединений, 60 секунд)
+
+
+
+```bash
+wrk -t5 -c200 -d60s http://localhost:8000/user/id-1
+```
+
+Redis `ON`:
+
+```bash
+➜  ~ wrk -t5 -c200 -d60s http://localhost:8000/user/id-1
+Running 1m test @ http://localhost:8000/user/id-1
+  5 threads and 200 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   164.82ms   15.95ms 277.52ms   78.39%
+    Req/Sec   243.73     41.01   390.00     71.77%
+  72729 requests in 1.00m, 13.46MB read
+Requests/sec:   1210.14
+Transfer/sec:    229.26KB
+```
+
+Redis `OFF`:
+
+```bash
+sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 
+```
+
+Редис позволяет удерживать высокую скорость и бесперебойность, в то время как без него заполнилась очередь запросов и БД встряла.

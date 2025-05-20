@@ -45,8 +45,8 @@ class UserService:
         cached = self.redis.get(key)
         
         # отключить для тестов
-        if cached:
-            return UserEntityRead.model_validate_json(cached)
+        # if cached:
+        #     return UserEntityRead.model_validate_json(cached)
         
         user = self.repository.get_user_by_id(db, id)
         if not user:
