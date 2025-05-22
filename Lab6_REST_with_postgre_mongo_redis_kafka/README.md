@@ -87,6 +87,7 @@
 Для взаимодействия с API можно использовать любой HTTP-клиент (например, curl, Postman) или открыть документацию Swagger по адресам:
 - http://localhost:8000/docs (сервис пользователей)
 - http://localhost:8001/docs (сервис целей и задач)
+- http://localhost:8002/docs (consumer service)
 
 
 ## Что необходимо добавить:
