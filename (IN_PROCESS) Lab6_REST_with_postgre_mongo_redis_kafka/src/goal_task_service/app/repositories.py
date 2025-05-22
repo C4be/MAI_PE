@@ -4,6 +4,7 @@ from bson import ObjectId
 
 from app.models import Goal, Task
 from app.database_mongo import image_collection, text_collection, office_collection
+from app.kafka_producer import send_task_event
 
 
 class GoalRepository:
@@ -51,6 +52,10 @@ class TaskRepository:
         db.add(task)
         db.commit()
         db.refresh(task)
+        
+        #  Отправление события в Kafka
+        send_task_event(task_data=task.to_dict(), event_type='create')
+        
         return task
 
     def get_by_id(self, db: Session, id: int) -> Optional[Task]:

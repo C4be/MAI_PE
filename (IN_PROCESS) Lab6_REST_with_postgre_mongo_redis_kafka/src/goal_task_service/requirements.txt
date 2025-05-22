@@ -6,3 +6,4 @@ python-multipart
 pymongo
 pyjwt
 python-jose[cryptography]
+confluent-kafka

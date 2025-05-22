@@ -33,3 +33,14 @@ class Task(Base):
     
     # одна задача -> принадлежит одной цели
     goal = relationship('Goal', back_populates='tasks')
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'title': self.title,
+            'text': self.text,
+            'owner_nick': self.owner_nick,
+            'files': self.files,
+            'goal_id': self.goal_id if hasattr(self, 'goal_id') else None,
+            'created_at': self.created_at.isoformat() if hasattr(self, 'created_at') else None
+        }

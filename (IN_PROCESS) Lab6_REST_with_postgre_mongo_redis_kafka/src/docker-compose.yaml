@@ -10,6 +10,7 @@ services:
             - goal_task_db
             - task_files_db
             - user_service
+            - kafka
         environment:
             - DATABASE_NAME=goal_task_service_db
             - DB_USER=root
@@ -20,6 +21,28 @@ services:
             - MONGO_PORT=27017
             - MONGO_USER=admin
             - MONGO_PASSWORD=password
+            - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+        networks:
+            - our_network
+        restart: unless-stopped
+
+    # kafka consumer service
+    task_consumer_service:
+        build:
+            context: ./consumer_service
+        ports:
+            - '8002:8002'
+        depends_on:
+            - kafka
+            - goal_task_db
+        environment:
+            - DATABASE_NAME=goal_task_service_db
+            - DB_USER=root
+            - DB_PASS=toor
+            - CONTAINER_NAME=goal_task_db
+            - PORT=5432
+            - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+            - KAFKA_GROUP_ID=task_consumer_group
         networks:
             - our_network
         restart: unless-stopped
@@ -98,6 +121,34 @@ services:
         restart: unless-stopped
         networks:
             - our_network
+
+    # Kafka
+    zookeeper:
+        image: confluentinc/cp-zookeeper:latest
+        ports:
+            - "2181:2181"
+        environment:
+            - ZOOKEEPER_CLIENT_PORT=2181
+            - ZOOKEEPER_TICK_TIME=2000
+        networks:
+            - our_network
+        restart: unless-stopped
+
+    kafka:
+        image: confluentinc/cp-kafka:latest
+        ports:
+            - "9092:9092"
+        depends_on:
+            - zookeeper
+        environment:
+            - KAFKA_BROKER_ID=1
+            - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+            - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+            - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+            - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+        networks:
+            - our_network
+        restart: unless-stopped
 
 networks:
     our_network:
